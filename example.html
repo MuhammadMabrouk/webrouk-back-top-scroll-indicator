@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webrouk back to top with scroll indicator Component</title>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 300vh;
+      background-color: hsl(225, 6%, 22%);
+      padding: 50px;
+      margin: 0;
+    }
+
+    webrouk-back-top-scroll-indicator {
+      /* Expected variables from inside the component (optional) */
+      --primary-color: hsl(218, 95%, 54%);
+      --diameter-size: 46px;
+    }
+  </style>
+</head>
+
+<body>
+  <webrouk-back-top-scroll-indicator
+    title="Back to Top"
+    show-at="50">
+  </webrouk-back-top-scroll-indicator>
+
+  <!-- webrouk-back-top-scroll-indicator component file -->
+  <script src="webrouk-back-top-scroll-indicator.js"></script>
+</body>
+
+</html>
