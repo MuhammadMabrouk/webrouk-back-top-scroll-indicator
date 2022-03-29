@@ -7,17 +7,23 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       box-sizing: border-box;
     }
     :host {
-      --primary-color-fb: hsl(218, 95%, 54%);
+      --primary-color-fb: 218, 95%, 54%;
       --diameter-size-fb: 46px;
     
       position: fixed;
-      right: 25px;
+      z-index: 1990;
       bottom: 25px;
       height: var(--diameter-size, var(--diameter-size-fb));
       width: var(--diameter-size, var(--diameter-size-fb));
       -webkit-transition: all 0.3s ease-in-out;
       -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
+    }
+    :host-context([dir="ltr"]) {
+      right: 25px;
+    }
+    :host-context([dir="rtl"]) {
+      left: 25px;
     }
     :host(:not(:host(.show))) {
       visibility: hidden;
@@ -36,10 +42,12 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       outline: 0;
       border-radius: 50%;
       cursor: pointer;
+      -webkit-box-shadow: 0 0 0 2px hsla(var(--primary-color), 25%) inset;
+      box-shadow: 0 0 0 2px hsla(var(--primary-color), 25%) inset;
     }
     .back-top-btn svg path {
       fill: none;
-      stroke: var(--primary-color, var(--primary-color-fb));
+      stroke: hsl(var(--primary-color, hsl(var(--primary-color-fb))));
       stroke-width: 5;
     }
     .back-top-btn::after {
@@ -52,15 +60,15 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       transform: translate(-50%, -50%);
       height: 40%;
       width: 25%;
-      background-color: var(--primary-color, var(--primary-color-fb));
+      background-color: hsl(var(--primary-color, hsl(var(--primary-color-fb))));
       -webkit-clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
       clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
     }  
   </style>
 
-  <button class="back-top-btn">
-    <svg width="100%" height="100%" viewBox="-1 -1 102 102">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+  <button part="button" class="back-top-btn">
+    <svg part="svg" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path part="path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </button>
 `;
@@ -97,11 +105,8 @@ class WebroukBackTopScrollIndicator extends HTMLElement {
     this._BTSI_progressPath = this._BTSI_btn.querySelector("path");
     this._BTSI_progressPathLength = this._BTSI_progressPath.getTotalLength();
 
-    this._BTSI_progressPath.style.transition = this._BTSI_progressPath.style.WebkitTransition = "none";
     this._BTSI_progressPath.style.strokeDasharray = `${this._BTSI_progressPathLength} ${this._BTSI_progressPathLength}`;
     this._BTSI_progressPath.style.strokeDashoffset = this._BTSI_progressPathLength;
-    this._BTSI_progressPath.getBoundingClientRect();
-    this._BTSI_progressPath.style.transition = this._BTSI_progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
 
     // actions on scrolling
     this._onScrollingDocument();
@@ -109,7 +114,7 @@ class WebroukBackTopScrollIndicator extends HTMLElement {
 
   // actions on scrolling
   _onScrollingDocument() {
-    const scrollPosition = window.pageYOffset;
+    const scrollPosition = window.scrollY;
     const pageHeight = document.body.clientHeight - window.innerHeight;
     const scrollProgress = this._BTSI_progressPathLength - (scrollPosition * this._BTSI_progressPathLength) / pageHeight;
 

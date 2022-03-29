@@ -48,9 +48,25 @@ Expected CSS Variables from inside the component (optional).
 
 ```css
 webrouk-back-top-scroll-indicator {
-  --primary-color: hsl(218, 95%, 54%);
+  --primary-color: 218, 95%, 54%; /* HSL color values without the brackets */
   --diameter-size: 46px;
 }
+```
+
+### Styleable Component Parts
+---
+- button
+- svg
+- path
+
+#### Example:
+
+```css
+webrouk-custom-select::part(button) { /* some styles ... */ }
+
+webrouk-custom-select::part(svg) { /* some styles ... */ }
+
+webrouk-custom-select::part(path) { /* some styles ... */ }
 ```
 
 ### License
