@@ -7,14 +7,14 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       box-sizing: border-box;
     }
     :host {
-      --primary-color-fb: 218, 95%, 54%;
-      --diameter-size-fb: 46px;
+      --w-primary-color-fb: 218, 95%, 54%;
+      --w-diameter-size-fb: 46px;
     
       position: fixed;
       z-index: 1990;
       bottom: 25px;
-      height: var(--diameter-size, var(--diameter-size-fb));
-      width: var(--diameter-size, var(--diameter-size-fb));
+      height: var(--w-diameter-size, var(--w-diameter-size-fb));
+      width: var(--w-diameter-size, var(--w-diameter-size-fb));
       -webkit-transition: all 0.3s ease-in-out;
       -o-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
@@ -42,12 +42,12 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       outline: 0;
       border-radius: 50%;
       cursor: pointer;
-      -webkit-box-shadow: 0 0 0 2px hsla(var(--primary-color), 25%) inset;
-      box-shadow: 0 0 0 2px hsla(var(--primary-color), 25%) inset;
+      -webkit-box-shadow: 0 0 0 2px hsla(var(--w-primary-color), 25%) inset;
+      box-shadow: 0 0 0 2px hsla(var(--w-primary-color), 25%) inset;
     }
     .back-top-btn svg path {
       fill: none;
-      stroke: hsl(var(--primary-color, hsl(var(--primary-color-fb))));
+      stroke: hsl(var(--w-primary-color, hsl(var(--w-primary-color-fb))));
       stroke-width: 5;
     }
     .back-top-btn::after {
@@ -60,7 +60,7 @@ webroukBackTopScrollIndicatorTemplate.innerHTML = `
       transform: translate(-50%, -50%);
       height: 40%;
       width: 25%;
-      background-color: hsl(var(--primary-color, hsl(var(--primary-color-fb))));
+      background-color: hsl(var(--w-primary-color, hsl(var(--w-primary-color-fb))));
       -webkit-clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
       clip-path: polygon(0 30%, 50% 0, 100% 30%, 94% 39%, 58% 17%, 58% 100%, 42% 100%, 42% 17%, 6% 39%);
     }  

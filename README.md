@@ -48,8 +48,8 @@ Expected CSS Variables from inside the component (optional).
 
 ```css
 webrouk-back-top-scroll-indicator {
-  --primary-color: 218, 95%, 54%; /* HSL color values without the brackets */
-  --diameter-size: 46px;
+  --w-primary-color: 218, 95%, 54%; /* HSL color values without the brackets */
+  --w-diameter-size: 46px;
 }
 ```
 

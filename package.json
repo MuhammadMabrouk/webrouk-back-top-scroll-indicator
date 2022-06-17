@@ -1,6 +1,6 @@
 {
   "name": "webrouk-back-top-scroll-indicator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webrouk Back Top Scroll Indicator is a lightweight native JavaScript web component for smooth back to top button with a circular progress bar which indicates the current reading progress when scrolling down/up the webpage.",
   "main": "webrouk-back-top-scroll-indicator.js",
   "scripts": {
